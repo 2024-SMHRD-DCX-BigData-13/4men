@@ -1,0 +1,234 @@
+/* login.css */
+@charset "UTF-8";
+/* 전체 페이지 스타일 */
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background-image: url('./images/loginpage.jpg');
+	background-size: cover; /* 화면에 맞게 이미지 확장 */
+	background-position: center; /* 이미지를 중앙에 배치 */
+	background-repeat: no-repeat; /* 이미지 반복 방지 */
+}
+
+/* 제목 스타일 */
+.title {
+	color: skyblue;
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 130px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	letter-spacing: 2px;
+	transition: transform 0.3s ease;
+	animation: title-moving 0.5s ease-out;
+	animation-delay: 0.8s;
+}
+
+.title:hover {
+	transform: scale(1.1);
+}
+
+/*@keyframes title-moving {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}*/
+
+/* 팀 정보 스타일 */
+#team, a:visited, a:active {
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	color: lightblue;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+}
+/* 로그인 텍스트 스타일 */
+#login-text {
+	color: #FFD1DC;
+	font-size: 35px;
+}
+
+/* 로그인 박스 스타일 */
+.login-container {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid whiteshadow;
+	padding: 29px;
+	border-radius: 12px;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+	/* background: linear-gradient(to bottom, #FFF5E1 50%, #FFD1DC 50%);*/
+	background-color: white; width : 350px;
+	text-align: center;
+	animation: login-moving 0.8s ease-out;
+	margin-top: 30px;
+	width: 350px;
+}
+
+@keyframes login-moving {from { opacity:0;
+	transform: translate(50px, -50px);
+}
+
+to {
+	opacity: 1;
+	transform: translate(0, 0);
+}
+
+}
+
+/* 컨테이너 레이아웃 스타일 */
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 30px;
+	height: 100vh;
+}
+
+.signup-layout {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 50px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.signup-container, .preference-container {
+	width: 600px;
+	padding: 30px;
+	padding-bottom: 29px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	animation: login-moving 0.8s ease-out;
+}
+
+.preference-container .form-group {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;;
+}
+
+.checkbox-item {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	width: 13px;
+}
+
+.hidden {
+	display: none;
+}
+
+/* 입력 필드 스타일 */
+.form-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	justify-content: center;
+}
+
+.form-group p {
+	width: 126px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+p {
+	white-space: nowrap;
+	margin: 0;
+}
+
+.form-group input {
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 220px;
+	background-color: white;
+}
+
+.input-style {
+	width: 290px;
+	height: 35px;
+}
+
+.input-style input {
+	float: right;
+}
+
+#id, #pw {
+	margin-bottom: 0px;
+}
+
+/* 버튼 스타일 */
+button {
+	width: 40%;
+	padding: 10px;
+	margin-top: 10px;
+	background-color: lightblue;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1em;
+	transition: background-color 0.3s ease;
+	display: inline-block;
+	font-weight: bold;
+}
+
+button+button {
+	margin-left: 4%;
+}
+
+button:hover {
+	background-color: blue;
+}
+
+/* 입력 필드와 버튼 포커스 스타일 */
+input[type="text"]:focus, input[type="password"]:focus, button:focus {
+	outline: none;;
+}
+
+/* ID, PW 레이블 스타일 */
+.form-group span {
+	display: inline-block;
+	color: skyblue;
+	font-size: 15px;
+	font-weight: bold;
+	margin-right: 10px;
+	margin-top: 7px;
+}
+/* 체크박스 타이틀 */
+#checkbox-title {
+	margin-top: 55px;
+	margin-bottom: 115px;
+}
+
+#fuck-button {
+	margin-left: 180px;
+}
+
+#login-title-text {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
