@@ -38,7 +38,7 @@ public class Member {
 	private String birth_date;
 	
 	@NonNull
-	private String genser;
+	private String gender;
 	
 	
 	private String phone_number;

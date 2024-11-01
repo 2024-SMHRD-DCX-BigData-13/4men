@@ -11,8 +11,9 @@
 	 -->
 	 <!-- parameterType : 각 변수들을 어떤 객체로 묶어서 넣어줄지 -->
 	 <!-- id : sql문 구분, DAO에서 id를 이용해서 sql문을 실행 -->
+	 <!-- 회원가입 -->
 	<insert id="join" parameterType="com.smhrd.model.Member">
-		insert into user_member
+		insert into user_member (user_id, password, name, birth_date, gender, phone_number)
 		values(
 			#{user_id},
 			#{password},

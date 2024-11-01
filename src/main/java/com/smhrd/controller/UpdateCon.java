@@ -16,12 +16,15 @@ public class UpdateCon implements Controller {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
-		String tel = request.getParameter("tel");
-		String[] preference = request.getParameterValues("preference");
+		String user_id = request.getParameter("user_id");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String birth_date = request.getParameter("birth_date");
+		String gender = request.getParameter("gender");
+		String phone_number = request.getParameter("phone_number");
 
-		Member member = new Member(email, pw, tel, preference);
+
+		Member member = new Member(user_id, password, name, birth_date,gender,phone_number);
 		
 		MemberDAO dao = new MemberDAO();
 		

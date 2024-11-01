@@ -36,7 +36,7 @@ public class LoginCon implements Controller {
 			return "redirect:/goMain.do";
 		} else {
 			System.out.println("로그인 실패");
-			return "redirect:/gologin.do";
+			return "redirect:/goLogin.do";
 		}
 
 	}
