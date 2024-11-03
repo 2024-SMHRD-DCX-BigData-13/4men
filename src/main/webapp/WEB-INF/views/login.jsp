@@ -55,20 +55,23 @@
 					</div>
 					<div class="form-group">
 						<div class="input-style">
-							<span>birthday :</span> <input type="text" id="birth_date"
-								name="birth_date" />
+							<span>birthday :</span> <input type="date" id="birthday"
+								name="birthday" />
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="input-style">
-							<span>gender :</span> <input type="text" id="gender"
-								name="gender" />
+							<span>gender :</span> <select id="gender" name="gender">
+								<option value="남성">남성</option>
+								<option value="여성">여성</option>
+								<option value="중성">중성</option>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="input-style">
 							<span>phone_number :</span> <input type="text" id="phone_number"
-								name="phone_number" />
+								name="phone_number" value="010"/>
 						</div>
 					</div>
 					<button id="fuck-button" type="button" onclick="showLogin()">회원가입</button>

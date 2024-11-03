@@ -35,7 +35,7 @@ public class Member {
 	private String name;
 	
 	@NonNull
-	private String birth_date;
+	private String birthday;
 	
 	@NonNull
 	private String gender;

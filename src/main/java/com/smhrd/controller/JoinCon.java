@@ -21,7 +21,7 @@ public class JoinCon implements Controller {
 		String user_id = request.getParameter("user_id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
-		String birth_date = request.getParameter("birth_date");
+		String birthday = request.getParameter("birthday");
 		String gender = request.getParameter("gender");
 		String phone_number = request.getParameter("phone_number");
 
@@ -29,7 +29,7 @@ public class JoinCon implements Controller {
 		member.setUser_id(user_id);
 		member.setPassword(password);
 		member.setName(name);
-		member.setBirth_date(birth_date);
+		member.setBirthday(birthday);
 		member.setGender(gender);
 		member.setPhone_number(phone_number);
 		

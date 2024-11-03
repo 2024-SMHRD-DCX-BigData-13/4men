@@ -13,12 +13,12 @@
 	 <!-- id : sql문 구분, DAO에서 id를 이용해서 sql문을 실행 -->
 	 <!-- 회원가입 -->
 	<insert id="join" parameterType="com.smhrd.model.Member">
-		insert into user_member (user_id, password, name, birth_date, gender, phone_number)
+		insert into member (user_id, password, name, birthday, gender, phone_number)
 		values(
 			#{user_id},
 			#{password},
 			#{name},
-			#{birth_date},
+			#{birthday},
 			#{gender},
 			#{phone_number}
 		)
@@ -32,7 +32,7 @@
 				   setter가 있어야함
 	 -->
 	<select id="login" resultType="com.smhrd.model.Member" parameterType="com.smhrd.model.Member">
-		select * from user_member
+		select * from member
 		where user_id = #{user_id}
 		and password = #{password}
 	</select>

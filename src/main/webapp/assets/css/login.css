@@ -121,6 +121,7 @@ to {
 	flex-direction: column;
 	justify-content: center;
 	animation: login-moving 0.8s ease-out;
+	background-color: white;
 }
 
 .preference-container .form-group {
