@@ -52,10 +52,10 @@
 	</select>
 
 	<!-- 5. 이메일 중복 체크 -->
-	<select id="check" resultType="com.smhrd.model.Member">
-		select * from member
-		where user_id = #{user_id}
-	</select>
+<select id="check" resultType="com.smhrd.model.Member">
+    select * from member
+    where user_id = #{user_id}
+</select>
 	
 	<!-- 6. ID찾기 -->
 	<select id="find" resultType="com.smhrd.model.Member" parameterType="com.smhrd.model.Member">

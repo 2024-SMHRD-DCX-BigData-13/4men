@@ -90,12 +90,25 @@ public class MemberDAO {
 		
 	}
 	
-	public Member check(Member Member) {
-		SqlSession session = factory.openSession(true);
-		Member member = session.selectOne("check", Member);
-		session.close();
-		
-		return member;
+	public Member check(String user_id) {
+	    // 1. user_id가 null이거나 비어있는 경우 처리
+	    if (user_id == null || user_id.trim().isEmpty()) {
+	        // 유효하지 않은 user_id 처리
+	        return null;
+	    }
+
+	    // 2. SQL 세션 생성 및 조회
+	    SqlSession session = factory.openSession(true);
+	    Member member = null;
+	    try {
+	        member = session.selectOne("check", user_id);
+	    } catch (Exception e) {
+	        e.printStackTrace(); // 오류 로그를 출력하여 디버깅
+	    } finally {
+	        session.close(); // 세션을 닫음
+	    }
+
+	    return member;
 	}
 
 	public List<Member> find (String name, String birthday, String phone_number) {

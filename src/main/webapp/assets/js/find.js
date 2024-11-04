@@ -3,7 +3,7 @@ $('#find_id').on('click', function(event) {
     console.log("AJAX 요청 실행");
 
     $.ajax({
-        url: 'check.do',
+        url: 'find.do',
         type: 'post',
         dataType: 'json',
         data: {

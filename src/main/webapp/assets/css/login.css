@@ -157,8 +157,13 @@ form {
     background-color: #ffffff;
     font-size: 16px;
     color: #555555;
-    appearance: none; /* 기본 화살표 없애기 */
+    appearance: none;
     background-position: right 10px center;
     background-size: 10px;
+}
+#result {
+    font-size: 0.9em;
+    margin-left: 10px;
+    display: block; 
 }
 

@@ -29,12 +29,14 @@
 			<!-- 회원가입 폼 -->
 			<h1 class="title">Sign Up</h1>
 			<div class="login-group">
-				<input type="text" id="user_id" placeholder="아이디"> <input
-					type="password" id="password" placeholder="비밀번호"> <input
-					type="text" id="name" placeholder="이름"> <input type="date"
-					id="birthday" />
+				<input type="text" name="user_id" id="user_id" placeholder="아이디">
+				<p id="result"></p>
+				<input type="password" name="password" id="password"
+					placeholder="비밀번호"> <input type="text" name="name"
+					id="name" placeholder="이름"> <input name="birthday"
+					type="date" id="birthday" />
 				<div class="select-gender">
-				<select id="gender">
+					<select id="gender" name="gender">
 						<option value="" disabled selected hidden>성별</option>
 						<option value="남성">남성</option>
 						<option value="여성">여성</option>
@@ -43,7 +45,8 @@
 				</div>
 			</div>
 			<div class="login-group">
-				<input type="text" id="phone_number" placeholder="핸드폰 번호">
+				<input type="text" name="phone_number" id="phone_number"
+					placeholder="핸드폰 번호 (- 제외)">
 			</div>
 			<button type="button" onclick="showLogin();" id=sign_up>회원가입</button>
 			<button type="button" onclick="showLogin();">돌아가기</button>
@@ -55,8 +58,8 @@
 			<div class="login-group">
 				<input type="text" placeholder="이름" id="name-find" name="name-find">
 				<input type="date" id="birthday-find" name="birthday-find">
-				<input type="text" placeholder="핸드폰 번호" id="phone_number-find"
-					name="phone_number-find">
+				<input type="text" placeholder="핸드폰 번호 (- 제외)"
+					id="phone_number-find" name="phone_number-find">
 			</div>
 			<button type="button" id="find_id" onclick="showLogin();">아이디
 				찾기</button>
@@ -100,5 +103,7 @@
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/join.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/find.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/check.js"></script>
+	
 </body>
 </html>

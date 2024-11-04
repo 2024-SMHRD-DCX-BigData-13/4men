@@ -20,7 +20,7 @@ $('#sign_up').on('click', function(event) {
             alert("회원가입이 완료되었습니다."); // 성공 메시지 표시
         },
         error: function(xhr, status, error) {
-            alert("회원가입 실패! 아이디가 중복입니다.")
+            alert("회원가입 실패!")
         }
     });
 });

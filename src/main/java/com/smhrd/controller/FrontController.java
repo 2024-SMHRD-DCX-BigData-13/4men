@@ -70,11 +70,15 @@ public class FrontController extends HttpServlet {
 		
 		// ==============================================================
 		
-		handlerMapping.put("/check.do", new CheckCon());
+		handlerMapping.put("/find.do", new FindCon());
 		
 		handlerMapping.put("/search.do", new SearchCon());
 		
 		handlerMapping.put("/goFindId.do", new goFindIdCon());
+
+		handlerMapping.put("/check.do", new CheckCon());
+		
+		
 		
 
 	}
