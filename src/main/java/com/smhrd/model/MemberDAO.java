@@ -90,11 +90,26 @@ public class MemberDAO {
 		
 	}
 	
-	public Member check(String id) {
+	public Member check(Member Member) {
 		SqlSession session = factory.openSession(true);
-		Member member = session.selectOne("check", id);
+		Member member = session.selectOne("check", Member);
 		session.close();
 		
 		return member;
 	}
+
+	public List<Member> find (String name, String birthday, String phone_number) {
+		SqlSession session = factory.openSession(true);
+		Member para = new Member();
+		para.setName(name);
+		para.setBirthday(birthday);
+		para.setPhone_number(phone_number);
+		List<Member> members = session.selectList("find",para);
+		session.close();
+		
+		return members;
+	}
+
+	
+	
 }

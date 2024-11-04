@@ -43,7 +43,7 @@
 		set pw = #{pw},
 			tel = #{tel},
 			address = #{address}
-		where email = #{email}
+		where user_id = #{user_id}
 	</update>
 	
 	<!-- 4. 전체 회원 조회 -->
@@ -54,7 +54,15 @@
 	<!-- 5. 이메일 중복 체크 -->
 	<select id="check" resultType="com.smhrd.model.Member">
 		select * from member
-		where email = #{email}
+		where user_id = #{user_id}
+	</select>
+	
+	<!-- 6. ID찾기 -->
+	<select id="find" resultType="com.smhrd.model.Member" parameterType="com.smhrd.model.Member">
+		select user_id from member
+		where name = #{name}
+		and birthday = #{birthday}
+		and phone_number = #{phone_number}
 	</select>
 
 

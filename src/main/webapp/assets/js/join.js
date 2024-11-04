@@ -1,4 +1,4 @@
-$('#fuck-button').on('click', function(event) {
+$('#sign_up').on('click', function(event) {
     event.preventDefault(); // 기본 폼 제출 방지
 	console.log("AJAX 요청 실행");
 	

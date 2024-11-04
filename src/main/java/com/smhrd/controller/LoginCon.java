@@ -18,8 +18,8 @@ public class LoginCon implements Controller {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String user_id = request.getParameter("user_id");
-		String password = request.getParameter("password");
+		String user_id = request.getParameter("user_id2");
+		String password = request.getParameter("password2");
 
 		Member member = new Member();
 		member.setUser_id(user_id);
