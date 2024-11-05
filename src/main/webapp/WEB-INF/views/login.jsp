@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="assets/css/login.css" />
 </head>
 <body>
+	<div class="header-bar">
+	 <!-- <img src="./images/thumbs/pictogram.jpg" alt="Logo" class="header-logo" />  -->
+	</div>
 	<div class="container" id="login-container">
 		<!-- 로그인 박스 -->
 		<form action="login.do" class="login-container">
@@ -66,15 +69,13 @@
 			<button type="button" onclick="showLogin();">돌아가기</button>
 		</form>
 	</div>
-
-
-
-	<!-- 팀 정보 -->
-	<div id="team">
-		<a href="https://namu.wiki/w/%EC%95%88%EC%9C%A0%EC%A7%84">Team:
-			4men</a>
+	<div class="footer-bar">
+		<!-- 팀 정보 -->
+		<div id="team">
+			<a href="https://namu.wiki/w/%EC%95%88%EC%9C%A0%EC%A7%84">Team:
+				4men</a>
+		</div>
 	</div>
-
 	<script type="text/javascript">
 		function showSignUp(event) {
 			if (event)
@@ -104,6 +105,6 @@
 	<script src="${pageContext.request.contextPath}/assets/js/join.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/find.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/check.js"></script>
-	
+
 </body>
 </html>
