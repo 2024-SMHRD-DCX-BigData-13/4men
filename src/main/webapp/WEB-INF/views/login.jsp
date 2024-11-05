@@ -8,8 +8,21 @@
 <link rel="stylesheet" href="assets/css/login.css" />
 </head>
 <body>
+	<div class="video-background">
+		<video autoplay loop muted playsinline>
+			<source src="./images/fulls/login1.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+	</div>
 	<div class="header-bar">
-	 <!-- <img src="./images/thumbs/pictogram.jpg" alt="Logo" class="header-logo" />  -->
+		<!-- <img src="./images/thumbs/pictogram.jpg" alt="Logo" class="header-logo" />  -->
+		<h1>PICTOGRAM</h1>
+		<nav class="nav-menu">
+		<span class="menu-item" id="spot-recommend">명소 추천</span>
+		<span class="menu-item" id="free-board">자유 게시판</span>
+		  <div class="hover-message hidden" id="login-required">로그인 후 사용 가능합니다</div>
+		</nav>
+		<div>Team:4men</div>
 	</div>
 	<div class="container" id="login-container">
 		<!-- 로그인 박스 -->
@@ -30,7 +43,7 @@
 	<div id="signup-layout" class="container hidden">
 		<form method="post">
 			<!-- 회원가입 폼 -->
-			<h1 class="title">Sign Up</h1>
+			<div class="title">Sign Up</div>
 			<div class="login-group">
 				<input type="text" name="user_id" id="user_id" placeholder="아이디">
 				<p id="result"></p>
@@ -57,7 +70,7 @@
 	</div>
 	<div class="container hidden" id="findid-layout">
 		<form method="post">
-			<h1 class="title">Find ID</h1>
+			<div class="title">Find ID</div>
 			<div class="login-group">
 				<input type="text" placeholder="이름" id="name-find" name="name-find">
 				<input type="date" id="birthday-find" name="birthday-find">
@@ -76,30 +89,7 @@
 				4men</a>
 		</div>
 	</div>
-	<script type="text/javascript">
-		function showSignUp(event) {
-			if (event)
-				event.preventDefault(); // 기본 동작 방지
-			document.getElementById("login-container").classList.add("hidden");
-			document.getElementById("signup-layout").classList.remove("hidden");
-			document.getElementById("findid-layout").classList.add("hidden");
-		}
-
-		function showFindID(event) {
-			if (event)
-				event.preventDefault(); // 기본 동작 방지
-			document.getElementById("login-container").classList.add("hidden");
-			document.getElementById("signup-layout").classList.add("hidden");
-			document.getElementById("findid-layout").classList.remove("hidden");
-		}
-
-		function showLogin() {
-			document.getElementById("signup-layout").classList.add("hidden");
-			document.getElementById("findid-layout").classList.add("hidden");
-			document.getElementById("login-container").classList
-					.remove("hidden");
-		}
-	</script>
+	<script src="${pageContext.request.contextPath}/assets/js/login-function.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/join.js"></script>

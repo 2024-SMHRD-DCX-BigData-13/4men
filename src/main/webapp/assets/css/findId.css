@@ -38,7 +38,7 @@ body {
 
 /* 강조 텍스트 스타일 */
 .result_container strong {
-    color: #00796b; /* 로그인 페이지의 버튼 색상과 비슷한 색상 */
+    color: black; 
     font-weight: bold;
     font-size: 30px;
 }
