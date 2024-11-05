@@ -1,15 +1,27 @@
 $('#find_id').on('click', function(event) {
     event.preventDefault(); // 기본 폼 제출 방지
     console.log("AJAX 요청 실행");
+    let name = $('#name-find').val();
+    let birthday = $('#birthday-find').val();
+    let phoneNumber = $('#phone_number-find').val();
+
+    console.log('name:', name);
+    console.log('birthday:', birthday);
+    console.log('phone_number:', phoneNumber);
+
+    if (!name || !birthday || !phoneNumber) {
+        alert("모든 필드를 입력해주세요.");
+        return;
+    }
 
     $.ajax({
         url: 'find.do',
         type: 'post',
         dataType: 'json',
         data: {
-            'name': $('#name-find').val(),
-            'birthday': $('#birthday-find').val(),
-            'phone_number': $('#phone_number-find').val()
+            'name': name,
+            'birthday': birthday,
+            'phone_number': phoneNumber
         },
         success: function(res) {
             console.log(res);  // 서버 응답을 콘솔에 출력

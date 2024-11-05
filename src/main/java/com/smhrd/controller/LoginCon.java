@@ -22,8 +22,8 @@ public class LoginCon implements Controller {
 		String password = request.getParameter("password2");
 
 		Member member = new Member();
-		member.setUser_id(user_id);
-		member.setPassword(password);
+		member.setId(user_id);
+		member.setPw(password);
 
 		MemberDAO dao = new MemberDAO();
 		Member result = dao.login(member);

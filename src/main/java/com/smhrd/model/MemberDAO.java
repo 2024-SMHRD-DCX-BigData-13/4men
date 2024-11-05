@@ -111,16 +111,16 @@ public class MemberDAO {
 	    return member;
 	}
 
-	public List<Member> find (String name, String birthday, String phone_number) {
+	public Member find (String name, String birthdate, String phone_number) {
 		SqlSession session = factory.openSession(true);
 		Member para = new Member();
 		para.setName(name);
-		para.setBirthday(birthday);
-		para.setPhone_number(phone_number);
-		List<Member> members = session.selectList("find",para);
+		para.setBirthdate(birthdate);
+		para.setPhone(phone_number);
+		Member member = session.selectOne("find",para);
 		session.close();
 		
-		return members;
+		return member;
 	}
 
 	

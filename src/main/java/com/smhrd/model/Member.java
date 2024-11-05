@@ -26,22 +26,26 @@ public class Member {
 //	#{gender},
 //	#{phone_number}
 	@NonNull
-	private String user_id;
+	private String id;
 	
 	@NonNull
-	private String password;
+	private String pw;
 	
 	@NonNull
 	private String name;
 	
 	@NonNull
-	private String birthday;
+	private String birthdate;
 	
 	@NonNull
 	private String gender;
 	
 	
-	private String phone_number;
+	private String phone;
+	
+	private String mem_type;
+	
+	private String join_dt;
 	
 	// 2. Getter/Setter 메소드 선언
 	

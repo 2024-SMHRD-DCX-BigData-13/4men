@@ -13,14 +13,14 @@
 	 <!-- id : sql문 구분, DAO에서 id를 이용해서 sql문을 실행 -->
 	 <!-- 회원가입 -->
 	<insert id="join" parameterType="com.smhrd.model.Member">
-		insert into member (user_id, password, name, birthday, gender, phone_number)
+		insert into members (id, pw, name, birthdate, gender, phone)
 		values(
-			#{user_id},
-			#{password},
+			#{id},
+			#{pw},
 			#{name},
-			#{birthday},
+			#{birthdate},
 			#{gender},
-			#{phone_number}
+			#{phone}
 		)
 	</insert>
 	
@@ -32,37 +32,36 @@
 				   setter가 있어야함
 	 -->
 	<select id="login" resultType="com.smhrd.model.Member" parameterType="com.smhrd.model.Member">
-		select * from member
-		where user_id = #{user_id}
-		and password = #{password}
+		select * from members
+		where id = #{id}
+		and pw = #{pw}
 	</select>
 
 	<!-- 3. 회원 정보 수정 -->
 	<update id="update" parameterType="com.smhrd.model.Member">
-		update member
+		update members
 		set pw = #{pw},
-			tel = #{tel},
-			address = #{address}
-		where user_id = #{user_id}
+			phone = #{phone},
+		where id = #{id}
 	</update>
 	
 	<!-- 4. 전체 회원 조회 -->
 	<select id="select" resultType="com.smhrd.model.Member">
-		select * from member
+		select * from members
 	</select>
 
 	<!-- 5. 이메일 중복 체크 -->
 <select id="check" resultType="com.smhrd.model.Member">
-    select * from member
-    where user_id = #{user_id}
+    select * from members
+    where id = #{id}
 </select>
 	
 	<!-- 6. ID찾기 -->
 	<select id="find" resultType="com.smhrd.model.Member" parameterType="com.smhrd.model.Member">
-		select user_id from member
+		select id from members
 		where name = #{name}
-		and birthday = #{birthday}
-		and phone_number = #{phone_number}
+		and birthdate = #{birthdate}
+		and phone = #{phone}
 	</select>
 
 

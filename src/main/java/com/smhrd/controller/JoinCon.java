@@ -26,12 +26,12 @@ public class JoinCon implements Controller {
 		String phone_number = request.getParameter("phone_number");
 
 		Member member = new Member();
-		member.setUser_id(user_id);
-		member.setPassword(password);
+		member.setId(user_id);
+		member.setPw(password);
 		member.setName(name);
-		member.setBirthday(birthday);
+		member.setBirthdate(birthday);
 		member.setGender(gender);
-		member.setPhone_number(phone_number);
+		member.setPhone(phone_number);
 		
 	
 		
