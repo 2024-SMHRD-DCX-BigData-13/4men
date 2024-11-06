@@ -42,10 +42,6 @@ public class FrontController extends HttpServlet {
 		handlerMapping = new HashMap<String, Controller>();
 
 		// mapping - POJO 저장
-
-		
-
-		handlerMapping.put("/logout.do", new LogoutCon());
 		
 		handlerMapping.put("/goUpdate.do", new GoUpdateCon());
 		
@@ -56,6 +52,9 @@ public class FrontController extends HttpServlet {
 		handlerMapping.put("/delete.do", new DeleteCon());
 		
 		// ==============================================================
+		handlerMapping.put("/goLogout.do", new GoLogoutCon());
+		
+		handlerMapping.put("/logout.do", new LogoutCon());
 
 		handlerMapping.put("/goLogin.do", new GoLoginCon());
 
