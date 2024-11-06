@@ -19,8 +19,8 @@
          <!-- <img src="./images/thumbs/pictogram.jpg" alt="Logo" class="header-logo" />  -->
          <h1 class="logo">PICTOGRAM</h1>
          <nav class="nav-menu">
-            <span class="menu-item" id="spot-recommend">명소 추천</span> <span
-            class="menu-item" id="free-board">자유 게시판</span>
+            <button class="menu-item" id="spot-recommend">명소 추천</button> 
+            <button class="menu-item" id="free-board">자유 게시판</button>
          </nav>
          <div>
             <a href="#">마이페이지</a>
@@ -36,6 +36,7 @@
             </div>
          </div>
 
-
+<script
+		src="${pageContext.request.contextPath}/assets/js/post-function.js"></script>
 </body>
 </html>
