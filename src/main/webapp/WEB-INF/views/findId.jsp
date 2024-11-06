@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="result_container">
-            <h1>아이디 찾기 결과</h1>
-            <p>찾으신 아이디는>> <strong><%= request.getParameter("user_id") %></strong> << 입니다.</p>
+            <p>회원님의 ID</p>
+            <strong>>> <%= request.getParameter("user_id") %> <<</strong>
     </div>
 </body>
 </html>

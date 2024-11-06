@@ -9,25 +9,21 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.Member;
 
-public class GoMainCon implements Controller {
+public class goMyPage implements Controller {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
 		
 		if(member !=null) {
 			request.setAttribute("member", member);
-			return "main";
+			return "myPage";
 		}else {
 			
-			return "login";
+			return "redirect:/goLogin.do";
 		}
-		
-		
-		
-		
 		
 		
 	}

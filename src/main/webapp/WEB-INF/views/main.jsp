@@ -24,8 +24,8 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a>로그인</a></h1>
-						<p>게시판으로 이동 >> <a href="http://html5up.net">게시판</a></p>
+						<h1><a href="goMyPage.do">마이페이지</a></h1>
+						<p>게시판작성으로 이동 >> <a href="goCpost.do">게시판작성</a></p>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>

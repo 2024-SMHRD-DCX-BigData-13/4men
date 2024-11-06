@@ -16,18 +16,19 @@
 	</div>
 	<div class="header-bar">
 		<!-- <img src="./images/thumbs/pictogram.jpg" alt="Logo" class="header-logo" />  -->
-		<h1>PICTOGRAM</h1>
+		<h1 class="logo">PICTOGRAM</h1>
 		<nav class="nav-menu">
-		<span class="menu-item" id="spot-recommend">명소 추천</span>
-		<span class="menu-item" id="free-board">자유 게시판</span>
-		  <div class="hover-message hidden" id="login-required">로그인 후 사용 가능합니다</div>
+			<span class="menu-item" id="spot-recommend">명소 추천</span> <span
+				class="menu-item" id="free-board">자유 게시판</span>
+			<div class="hover-message hidden" id="login-required">로그인 후 사용
+				가능합니다</div>
 		</nav>
 		<div>Team:4men</div>
 	</div>
-	<div class="container" id="login-container">
 		<!-- 로그인 박스 -->
+	<div class="container" id="login-container">
 		<form action="login.do" class="login-container">
-			<div id="login-title-text" class="title">Pictogram</div>
+			<div id="login-title-text" class="logo">PICTOGRAM</div>
 			<div class="login-group">
 				<input type="text" name="user_id2" placeholder="아이디"> <input
 					type="password" name="password2" placeholder="비밀번호">
@@ -43,7 +44,7 @@
 	<div id="signup-layout" class="container hidden">
 		<form method="post">
 			<!-- 회원가입 폼 -->
-			<div class="title">Sign Up</div>
+			<div class="title">SIGN UP</div>
 			<div class="login-group">
 				<input type="text" name="user_id" id="user_id" placeholder="아이디">
 				<p id="result"></p>
@@ -70,7 +71,7 @@
 	</div>
 	<div class="container hidden" id="findid-layout">
 		<form method="post">
-			<div class="title">Find ID</div>
+			<div class="title">FIND ID</div>
 			<div class="login-group">
 				<input type="text" placeholder="이름" id="name-find" name="name-find">
 				<input type="date" id="birthday-find" name="birthday-find">
@@ -85,15 +86,16 @@
 	<div class="footer-bar">
 		<!-- 팀 정보 -->
 		<div id="team">
-			<a href="https://namu.wiki/w/%EC%95%88%EC%9C%A0%EC%A7%84">Team:
+			<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team:
 				4men</a>
 		</div>
 	</div>
-	<script src="${pageContext.request.contextPath}/assets/js/login-function.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/login-function.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/join.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/find.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/findId.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/check.js"></script>
 
 </body>
