@@ -56,8 +56,9 @@ public class FrontController extends HttpServlet {
 		handlerMapping.put("/delete.do", new DeleteCon());
 		
 		// ==============================================================
+
 		handlerMapping.put("/goLogin.do", new GoLoginCon());
-		
+
 		handlerMapping.put("/join.do", new JoinCon());
 		
 		handlerMapping.put("/goMain.do", new GoMainCon());
@@ -82,13 +83,15 @@ public class FrontController extends HttpServlet {
 			throws ServletException, IOException {
 		// 1. URLMapping을 분리
 		// http://localhost:8081/Ex08/login.do
+
 		String uri = request.getRequestURI();
 		// http://localhost:8081/Ex08
+
 		String cpath = request.getContextPath();
 		// /login.do
 		String mapping = uri.substring(cpath.length());
-
 		System.out.println(mapping);
+
 
 		// ==============================================================
 

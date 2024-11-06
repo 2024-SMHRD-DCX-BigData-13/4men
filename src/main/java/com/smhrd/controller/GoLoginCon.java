@@ -11,7 +11,7 @@ public class GoLoginCon implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		System.out.println("여기까지 왔음");
 		return "login";
 	}
 

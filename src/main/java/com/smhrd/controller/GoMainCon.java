@@ -13,10 +13,8 @@ public class GoMainCon implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
-		
 		if(member !=null) {
 			request.setAttribute("member", member);
 			return "main";
