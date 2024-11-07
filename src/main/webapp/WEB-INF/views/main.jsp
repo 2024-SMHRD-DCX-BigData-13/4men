@@ -47,13 +47,21 @@ response.setDateHeader("Expires", -1);
 						<h3>자유 게시판</h3>
 					</div>
 				</div>
-
 				<!-- board seach area -->
 				<div id="board-search">
 					<div class="container">
 						<div class="search-window">
 							<form action="">
 								<div class="search-wrap">
+									<div class="category-select">
+										<label for="category">카테고리</label> <select id="category"
+											name="category">
+											<option value="tip">팁</option>
+											<option value="free">잡담</option>
+											<option value="suggestion.">건의사항</option>
+											<!-- 추가 카테고리 옵션 -->
+										</select>
+									</div>
 									<label for="search" class="blind">공지사항 내용 검색</label> <input
 										id="search" type="search" name="" placeholder="검색어를 입력해주세요."
 										value="">
@@ -63,7 +71,11 @@ response.setDateHeader("Expires", -1);
 						</div>
 					</div>
 				</div>
-
+				<div class="category-options">
+					<button class="category-btn" data-category="tip">팁</button>
+					<button class="category-btn" data-category="free">잡담</button>
+					<button class="category-btn" data-category="suggestion">건의사항</button>
+				</div>
 				<!-- board list area -->
 				<div id="board-list">
 					<div class="container">
