@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.Member;
+import com.smhrd.model.Post;
+import com.smhrd.model.PostDAO;
 
 public class GoMainCon implements Controller {
 
@@ -17,6 +20,11 @@ public class GoMainCon implements Controller {
 		Member member = (Member) session.getAttribute("member");
 		if(member !=null) {
 			request.setAttribute("member", member);
+			
+            PostDAO postDAO = new PostDAO();
+            List<Post> posts = postDAO.getPosts();
+            request.setAttribute("posts", posts);
+			
 			return "main";
 		}else {
 			

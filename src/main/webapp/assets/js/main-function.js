@@ -43,3 +43,28 @@ $("#free-board").click(() => {
 
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+    setPaginationEventListeners();
+});
+
+function setPaginationEventListeners() {
+    document.querySelectorAll('.pagination a').forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const page = event.target.getAttribute('href').split('=')[1];
+            fetchPosts(page);
+        });
+    });
+}
+
+function fetchPosts(page) {
+    fetch(`main?page=${page}`, {
+        method: 'GET'
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.querySelector('#Cpost-container').innerHTML = data;
+        setPaginationEventListeners();
+    })
+    .catch(error => console.error('Error fetching posts:', error));
+}

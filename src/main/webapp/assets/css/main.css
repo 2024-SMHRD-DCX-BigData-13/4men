@@ -178,7 +178,7 @@ header nav ul li a {
 }
 
 .overlay h1 {
-	font-size: 70px;
+	font-size: 60px;
 	line-height: 1.5;
 	color: white;
 	font-family: Georgia, sans-serif;
@@ -345,9 +345,9 @@ section.notice {
 	width: 108px;
 	padding: 0 20px; /* 버튼의 좌우 여백 조절 */
 	font-size: 16px;
-	flex: none; /* 버튼의 너비를 고정 */
-	margin-left: 10px; /* 버튼과 검색창 간의 간격 */
-	height: 40px; /* 검색창과 동일한 높이 */
+	flex: none; 
+	margin-left: 10px; 
+	height: 40px; 
 }
 
 .board-table {
@@ -515,6 +515,13 @@ section.notice {
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
+.category-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px; 
+    margin: 10px;
+    margin-left : 240px;
+}
 
 .category-btn {
 	padding: 8px 16px;
@@ -534,4 +541,33 @@ section.notice {
 	background-color: #555;
 	color: #fff;
 	border-color: #555;
+}
+.pagination {
+    display: flex;
+    justify-content: center; /* 페이지네이션을 가운데 정렬 */
+    gap: 10px; /* 페이지 번호 사이의 간격 */
+    margin-top: 20px; /* 상단 여백 */
+    margin-bottom: 20px; /* 하단 여백 */
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 12px; /* 패딩 조정 */
+    font-size: 14px;
+    text-decoration: none;
+    color: #555; /* 기본 글자 색상 */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* 모서리 둥글게 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #e0e0e0; /* 마우스 오버 시 배경 색상 */
+    color: #333; /* 마우스 오버 시 글자 색상 */
+}
+
+.pagination span {
+    background-color: #555; /* 현재 페이지 배경 색상 */
+    color: #fff; /* 현재 페이지 글자 색상 */
+    cursor: default; /* 클릭 불가 */
 }
