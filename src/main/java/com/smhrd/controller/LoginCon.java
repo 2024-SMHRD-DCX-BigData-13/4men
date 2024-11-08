@@ -18,12 +18,12 @@ public class LoginCon implements Controller {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String user_id = request.getParameter("user_id2");
-		String password = request.getParameter("password2");
+		String id = request.getParameter("user_id2");
+		String pw = request.getParameter("password2");
 
 		Member member = new Member();
-		member.setId(user_id);
-		member.setPw(password);
+		member.setId(id);
+		member.setPw(pw);
 
 		MemberDAO dao = new MemberDAO();
 		Member result = dao.login(member);

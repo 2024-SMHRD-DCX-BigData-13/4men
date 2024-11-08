@@ -40,4 +40,14 @@ public class PostDAO {
 
 		return totalCount;
 	}
+	
+	public int insert(Post post) {
+		SqlSession session = factory.openSession(true);
+		
+		int cnt = session.insert("insert" , post);
+		
+		session.close();
+		
+		return cnt;
+	}
 }

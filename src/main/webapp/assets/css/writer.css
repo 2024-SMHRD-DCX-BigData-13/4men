@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: calc(100vh - 200px);
+   margin: 0;
+   margin-top: 100px;
+   margin-bottom: 100px;
+   font-family: Arial, sans-serif;
+   background-image: url("./images/main5.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   overflow-y: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 페이지 설정 */
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.header-bar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100px;
+   background-color: white;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   z-index: 1000;
+   display: flex;
+   align-items: center;
+   padding: 0 20px;
+   justify-content: space-between;
+}
+
+.logo {
+   font-size: 45px;
+   font-weight: bold;
+   font-family: Georgia, sans-serif;
+   text-decoration: none;
+   color: inherit;
+   display: inline-block;
+   z-index: 1001;
+}
+
+.logo a:visited, .logo a:active {
+   color: inherit;
+}
+
+.nav-menu {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.nav-menu span {
+   font-size: 25px;
+   margin: 0 25px;
+   font-weight: bold;
+}
+.header-bar div{
+   z-index: 1001;
+}
+.header-bar div a {
+   font-size: 18px;
+   font-weight: bold;
+   margin-right: 40px;
+   color: black;
+}
+.header-bar div a:visited, .header-bar div a:active,
+.header-bar div a:link, .header-bar div a:hover{
+    text-decoration: none;
+}
+.footer-bar {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 100px;
+   background-color: white;
+   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+   z-index: 1000;
+}
+
+.team a {
+   position: fixed;
+   right: 10px;
+   bottom: 10px;
+   font-size: 12px;
+   font-weight: bold;
+}
+
+.team a:visited, .team a:active, .team a:link, .team a:hover {
+   text-decoration: none;
+   color: #999;
+}
+
+
+.content-container {
+    display: block;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    width: 75%;
+    min-height: 791px;
+    z-index: 10;
+    margin: 0 auto;
+    position: absolute;
+    top: 110px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: opacity 0.6s ease-out;
+}
+
+.background-image {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover; /* 이미지 비율 유지하며 화면 채우기 */
+   z-index: 1;
+}
+
+h1 {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 45px;
+  }
+  
+  .table-stbox tr td {
+    padding-left: 100px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+  }
+  
+  .table-stbox tr td,
+  .table-stbox tr th {
+    padding: 7px 5px;
+    
+  }
+  .table-stbox .thl{
+    padding-left: 405px;
+  }
+  
+
+  .table-stbox tr td > select {
+    width: 200px;
+    padding: 13px;
+    border-radius: 4px;
+    border: 1px solid #dadada;
+    font-size: 12px;
+  }
+
+  .table-stbox tr td > input,
+  .table-stbox tr td > textarea {
+      width: 700px;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #dadada;
+    font-size: 12px;
+  }
+  .table-stbox input[type="file"]{
+    padding: 13px;
+  }
+
+    /* 클릭(포커스) 시 검은색 테두리로 변경 */
+input[type="text"],
+select[type="selects"],
+textarea[type="text"] {
+    padding: 10px;
+    border: 2px solid rgb(0, 0, 0); 
+    border-radius: 4px;
+    outline: none; 
+}
+
+input[type="text"]:focus,
+select[type="selects"]:focus,
+textarea[type="text"]:focus{
+    border-color: rgb(0, 0, 0); 
+}
+
+  .table-stbox tr td > textarea {
+    height: 270px;
+  }
+  
+  .table-stbox tr td > button {
+    width: 170px;
+    height: 50px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    background-color: #302f2f;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  .table-stbox tr td > button:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+
+  }
+  
+ 

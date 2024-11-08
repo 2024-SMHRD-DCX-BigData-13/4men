@@ -77,6 +77,10 @@ public class FrontController extends HttpServlet {
 		handlerMapping.put("/goCpost.do", new goCpostCon());
 		
 		handlerMapping.put("/getPosts.do", new getPostCon());
+		
+		handlerMapping.put("/goWriter.do", new goWriterCon());
+		
+		handlerMapping.put("/writer.do", new WriterCon());
 
 	}
 

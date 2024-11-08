@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.model.PostDAO">
-	<select id="getPosts" resultType="com.smhrd.model.Post" parameterType="map">
-SELECT * 
-FROM (
-    SELECT A.*, ROWNUM AS rnum
-    FROM (
-        SELECT * 
-        FROM posts
-        WHERE post_type = #{post_type}
-        ORDER BY post_idx DESC
-    ) A
-    WHERE ROWNUM &lt;= #{startRow} + #{pageSize}
-)
-WHERE rnum &gt; #{startRow}
-</select>
-	
+	<select id="getPosts" resultType="com.smhrd.model.Post"
+		parameterType="map">
+		SELECT *
+		FROM (
+		SELECT A.*, ROWNUM AS rnum
+		FROM (
+		SELECT *
+		FROM posts
+		WHERE post_type = #{post_type}
+		ORDER BY post_idx DESC
+		) A
+		WHERE ROWNUM &lt;= #{startRow} + #{pageSize}
+		)
+		WHERE rnum &gt; #{startRow}
+	</select>
 
-<select id="getTotalPostCount" parameterType="map" resultType="int">
-    SELECT COUNT(*)
-    FROM posts
-    WHERE post_type = #{post_type}
-</select>
+
+	<select id="getTotalPostCount" parameterType="map"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM posts
+		WHERE post_type = #{post_type}
+	</select>
+
+	<update id="insert" parameterType="com.smhrd.model.Post">
+		insert into posts(post_type,post_title,post_content,post_file,id)
+		values(
+		#{post_type},
+		#{post_title},
+		#{post_content},
+		#{post_file,jdbcType=VARCHAR},
+		#{id}
+		)
+	</update>
 </mapper>

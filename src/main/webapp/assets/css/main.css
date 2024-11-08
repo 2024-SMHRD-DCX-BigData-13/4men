@@ -105,6 +105,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	overflow-y: hidden;
 }
 
 * {
@@ -286,7 +287,7 @@ section.notice {
 }
 
 .page-title {
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 .page-title h3 {
@@ -567,3 +568,31 @@ section.notice {
     color: #fff; /* 현재 페이지 글자 색상 */
     cursor: default; /* 클릭 불가 */
 }
+.container {
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 240px; /* 동일한 왼쪽 여백을 맞춰줍니다 */
+}
+
+.category-buttons {
+    display: flex;
+    gap: 10px; 
+}
+
+
+.write-btn {
+	margin-left: 765px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.write-btn:hover {
+    background-color: #e0e0e0;
+}
+

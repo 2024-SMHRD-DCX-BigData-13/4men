@@ -80,13 +80,13 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	public List<Member> select() {
+	public Member select(String id) {
 		
 		SqlSession session = factory.openSession(true);
-		List<Member> list = session.selectList("select");
+		Member member = session.selectOne("select", id);
 		session.close();
 		
-		return list;
+		return member;
 		
 	}
 	
