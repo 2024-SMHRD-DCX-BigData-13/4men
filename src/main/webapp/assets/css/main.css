@@ -105,7 +105,6 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	overflow-y: hidden;
 }
 
 * {
@@ -291,11 +290,8 @@ section.notice {
 }
 
 .page-title h3 {
-	font-size: 28px;
-	color: #333333;
-	font-weight: 400;
+	font-size: 30px;
 	text-align: center;
-	background-color: #f9f9f9;
 }
 
 .search-wrap {

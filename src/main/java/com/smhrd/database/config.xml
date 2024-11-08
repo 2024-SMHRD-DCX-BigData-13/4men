@@ -24,7 +24,6 @@
   <!-- 우리가 사용하는 mapper.xml의 위치를 알려주기 -->
   <mappers>
     <mapper resource="com/smhrd/model/MemberMapper.xml"/>
-    <mapper resource="com/smhrd/model/BoardMapper.xml"/>
     <mapper resource="com/smhrd/model/PostMapper.xml"/>
   </mappers>
 </configuration>

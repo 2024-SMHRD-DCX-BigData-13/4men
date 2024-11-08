@@ -2,14 +2,18 @@ package com.smhrd.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @RequiredArgsConstructor // NonNull 표시해둔 변수만 초기화 하는 생성자
 @NoArgsConstructor
 @AllArgsConstructor // 모든 필드를 초기화하는 생성자
 @Data // 기본메소드 (Getter/Setter) 자동완성
+@Getter
+@Setter
 public class Post {
 	// DTO(Data Transfer Object)
 	// 계층간 데이터 이동시에 데이터를 담기위해 사용하는 객체
