@@ -1,9 +1,13 @@
 package com.smhrd.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -49,5 +53,22 @@ public class PostDAO {
 		session.close();
 		
 		return cnt;
+	}
+	
+	public List<Post> search(String text){
+		SqlSession session = factory.openSession(true);
+		
+		List<Post> list = session.selectList("search" , "%"+text+"%");
+		
+		session.close();
+		
+		return list;
+	}
+
+	public boolean increaseViewCount(int postId) {
+	    try (SqlSession session = factory.openSession(true)) { 
+	        int result = session.update("increaseViewCount", postId);
+	        return result > 0; 
+	    }
 	}
 }

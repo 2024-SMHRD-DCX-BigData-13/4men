@@ -18,6 +18,26 @@ response.setDateHeader("Expires", -1);
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
+	<c:if test="${param.message == 'success'}">
+		<script>
+			alert("게시물 작성 성공!");
+		</script>
+	</c:if>
+
+	<c:if test="${not empty showFreeBoard}">
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById('free-board').click();
+			});
+		</script>
+	</c:if>
+
+	<c:if test="${not empty successMsg}">
+		<script>
+			alert("${successMsg}");
+		</script>
+	</c:if>
+
 	<%
 	List<Post> posts = (List<Post>) request.getAttribute("posts");
 	Integer currentPage = (Integer) request.getAttribute("currentPage");
@@ -31,7 +51,8 @@ response.setDateHeader("Expires", -1);
 		</div>
 	</div>
 	<div class="header-bar">
-		<h1 class="logo">PICTOGRAM</h1>
+		<!-- <h1 class="logo">PICTOGRAM</h1> -->
+		<a href="goMain.do" id="logo">PICTOGRAM</a>
 		<nav class="nav-menu">
 			<button class="menu-item" id="spot-recommend">명소 추천</button>
 			<button class="menu-item" id="free-board">자유 게시판</button>
@@ -58,8 +79,8 @@ response.setDateHeader("Expires", -1);
 					<button class="category-btn" data-value="talk">잡담</button>
 					<button class="category-btn" data-value="coments">건의사항</button>
 					<form action="goWriter.do" method="post">
-						<input type="hidden" name="userId" value="${userId}">
-						<input type="hidden" name="username" value="${username}">
+						<input type="hidden" name="userId" value="${userId}"> <input
+							type="hidden" name="username" value="${username}">
 						<button type="submit" class="write-btn">글쓰기</button>
 					</form>
 				</div>
@@ -84,7 +105,10 @@ response.setDateHeader("Expires", -1);
 						</table>
 					</div>
 				</div>
-
+				<div class="search">
+					<input type="text" id=searchInpit>
+					<button id=searchButton onclick="">검색</button>
+				</div>
 				<!-- 페이지네이션 -->
 				<div class="pagination">
 					<c:forEach begin="1" end="${totalPages}" var="pageNum">
@@ -95,12 +119,24 @@ response.setDateHeader("Expires", -1);
 			</section>
 		</div>
 	</div>
+
+	<div class="modal-overlay"></div>
+	<div class="modal">
+		<div class="modal_body">
+			<h2 id=post_title></h2>
+			<p id="post_author"></p>
+			<p id="post_date"></p>
+			<img id="post_image" src="" alt="게시글 이미지" class="modal-image" />
+			<p id=post_content></p>
+		</div>
+	</div>
+
+
 	<div class="footer-bar">
 		<div class="team">
 			<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team: 4men</a>
 		</div>
 	</div>
-
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/main-function.js"></script>

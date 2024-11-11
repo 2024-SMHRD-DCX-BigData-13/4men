@@ -45,13 +45,14 @@ public class FrontController extends HttpServlet {
 		
 		handlerMapping.put("/goUpdate.do", new GoUpdateCon());
 		
-		handlerMapping.put("/update.do", new UpdateCon());
 		
 		handlerMapping.put("/goSelect.do", new GoSelectCon());
 		
 		handlerMapping.put("/delete.do", new DeleteCon());
 		
 		// ==============================================================
+		handlerMapping.put("/update.do", new UpdateCon());
+		
 		handlerMapping.put("/goLogout.do", new GoLogoutCon());
 		
 		handlerMapping.put("/logout.do", new LogoutCon());
@@ -81,6 +82,8 @@ public class FrontController extends HttpServlet {
 		handlerMapping.put("/goWriter.do", new goWriterCon());
 		
 		handlerMapping.put("/writer.do", new WriterCon());
+		
+		handlerMapping.put("/increaseViewCount.do", new IncreaseViewCountCon());
 
 	}
 

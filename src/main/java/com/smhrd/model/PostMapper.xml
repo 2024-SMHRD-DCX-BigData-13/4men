@@ -14,7 +14,8 @@
 		) A
 		WHERE ROWNUM &lt;= #{startRow} + #{pageSize}
 		)
-		WHERE rnum &gt; #{startRow}
+		WHERE rnum &gt;
+		#{startRow}
 	</select>
 
 
@@ -26,7 +27,8 @@
 	</select>
 
 	<update id="insert" parameterType="com.smhrd.model.Post">
-		insert into posts(post_type,post_title,post_content,post_file,id)
+		insert into
+		posts(post_type,post_title,post_content,post_file,id)
 		values(
 		#{post_type},
 		#{post_title},
@@ -35,4 +37,15 @@
 		#{id}
 		)
 	</update>
+
+	<select id="search" resultType="com.smhrd.model.Post">
+		select * from posts
+		where post_title
+		like #{text}
+	</select>
+	
+	<update id="increaseViewCount">
+    UPDATE posts SET POST_VIEWS = POST_VIEWS + 1 WHERE POST_IDX = #{postId}
+</update>
+	
 </mapper>

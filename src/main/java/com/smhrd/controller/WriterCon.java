@@ -34,7 +34,9 @@ public class WriterCon implements Controller {
 		int cnt = dao.insert(post);
 		
 		if(cnt > 0) {
-			return "main";
+			request.setAttribute("successMsg", "게시물 작성 성공!");
+			request.setAttribute("showFreeBoard", true);
+			    return "main"; 
 		}else {
 			request.setAttribute("errorMsg", "게시물 작성에 실패했습니다 다시 시도 해주세요.");
 			
