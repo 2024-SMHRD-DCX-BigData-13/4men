@@ -195,3 +195,20 @@ $(document).on('click', '.post-link', function(e) {
     $('#post_image').attr('src', $(this).data('image')); // 이미지가 있을 경우
     $('.modal').show();
 });
+
+
+  function submitSelection() {
+    const selectionForm = document.getElementById('selectionForm');
+    const mapDiv = document.getElementById('map');
+
+    // 체크리스트 숨기기
+    selectionForm.style.display = 'none';
+
+    // 지도 표시하기
+    mapDiv.style.display = 'block';
+
+    // 지도 표시 로직 추가 (예: Google Maps API 활용)
+    // 예시: 위치 데이터 가져와서 지도에 표시하기
+  }
+
+

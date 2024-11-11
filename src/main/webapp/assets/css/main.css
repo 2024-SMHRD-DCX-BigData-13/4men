@@ -722,3 +722,87 @@ section.notice {
 .modal_close:hover {
 	color: #333;
 }
+
+#selectionForm  {
+	margin: 20px auto;
+	margin-top: 40px;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	max-width: 1000px;
+	display: grid;
+	grid-template-columns: 1fr 0fr 1fr 0fr;
+	gap: 20px;
+	align-items: center;
+	padding: 20px;
+	padding-left: 150px;
+}
+
+#selectionForm label {
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	cursor: pointer;
+	justify-content: start;
+	padding-left: 40px;
+}
+
+#selectionForm input[type="checkbox"] {
+	width: 30px;
+	height: 30px;
+	margin-right: 15px;
+}
+
+#selectionForm button {
+	padding: 15px 30px;
+	background-color: #000000;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 20px;
+	transition: background-color 0.3s ease;
+	grid-column: span 4;
+	justify-self: right;
+	margin-right: 10px;
+}
+
+#selectionForm button:hover {
+	background-color: #333333;
+}
+/* 말풍선 스타일 */
+.infoWindow-content {
+  background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  color: #333333;
+  position: relative;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  border: none;
+  box-shadow: none;
+}
+
+.infoWindow-content strong {
+  font-weight: bold;
+  color: #00796b;
+}
+
+.infoWindow-content p {
+  font-weight: normal;
+  margin: 5px 0 0;
+}
+
+.infoWindow-content::after {
+  content: "";
+  position: absolute;
+  bottom: -29px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-width: 15px;
+  border-style: solid;
+  border-color: #80deea transparent transparent transparent;
+}
