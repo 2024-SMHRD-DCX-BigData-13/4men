@@ -44,7 +44,6 @@ $("#free-board").click(() => {
 })
 
 $(document).ready(function() {
-	console.log("나옴");
 	var pageSize = 10;  // 페이지당 게시글 수 설정
 
 	// 초기 로드 시 첫 페이지 게시글 로드
@@ -65,7 +64,6 @@ $(document).ready(function() {
 		$(this).addClass('active'); // 클릭된 카테고리 버튼에 active 클래스 추가
 		loadPosts(1);  // 첫 페이지로 이동하여 게시글 로드
 	});
-
 	// AJAX로 게시글 로드 함수
 	function loadPosts(page) {
 		var post_type = $('#current-post-type').val();  // 현재 post_type 값 가져오기
@@ -105,10 +103,10 @@ $(document).ready(function() {
 								$('#post_author').text('작성자: ' + post.id);
 								$('#post_date').text('작성일: ' + post.create_dt);
 								$('#post_content').text(post.post_content);
+								console.log(post.post_file);
 
 								var basePath = '/assets/css/images/';
 								var imageUrl = contextPath + basePath + post.post_file;
-
 								console.log("이미지 URL:", imageUrl); // 디버깅용
 
 								$('#post_image').attr('src', imageUrl); // 이미지 설정

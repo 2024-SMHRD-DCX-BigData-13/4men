@@ -91,7 +91,7 @@ a:hover, a:link, a:active, a:visited {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 100px;
+	height: 85px;
 	background-color: white;
 	box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 	z-index: 1000;
@@ -211,7 +211,7 @@ header nav ul li a {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 100px;
+	height: 85px;
 	background-color: white;
 	box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 	z-index: 1000;
@@ -233,13 +233,13 @@ header nav ul li a {
 .content-container {
 	display: none;
 	background-color: white;
-	padding: 10px;
-	width: 75%;
+	padding: 3px;
+	width: 70%;
 	min-height: 790px;
 	z-index: 10;
 	margin: 0 auto;
 	position: absolute;
-	top: 110px;
+	top: 118px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	transition: opacity 0.6s ease-out;
@@ -298,7 +298,8 @@ section.notice {
 }
 
 .page-title h3 {
-	font-size: 30px;
+	margin-top: 20px;
+	font-size: 40px;
 	text-align: center;
 }
 
@@ -564,7 +565,7 @@ section.notice {
 	justify-content: flex-start;
 	gap: 10px;
 	margin: 10px;
-	margin-left: 240px;
+	margin-left: 190px;
 }
 
 .category-btn {
@@ -592,7 +593,6 @@ section.notice {
 	justify-content: center; /* 페이지네이션을 가운데 정렬 */
 	gap: 10px; /* 페이지 번호 사이의 간격 */
 	margin-top: 20px; /* 상단 여백 */
-	margin-bottom: 20px; /* 하단 여백 */
 }
 
 .pagination a, .pagination span {
@@ -620,7 +620,6 @@ section.notice {
 .container {
 	justify-content: space-between;
 	align-items: center;
-	margin-left: 240px; /* 동일한 왼쪽 여백을 맞춰줍니다 */
 }
 
 .category-buttons {
@@ -629,7 +628,7 @@ section.notice {
 }
 
 .write-btn {
-	margin-left: 765px;
+	margin-left: 795px;
 	padding: 8px 16px;
 	font-size: 14px;
 	border: none;
@@ -723,9 +722,9 @@ section.notice {
 	color: #333;
 }
 
-#selectionForm  {
+#selectionForm {
 	margin: 20px auto;
-	margin-top: 40px;
+	margin-top: 10px;
 	background-color: #f9f9f9;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -758,7 +757,7 @@ section.notice {
 	background-color: #000000;
 	color: white;
 	border: none;
-	border-radius: 5px;
+	border-radius: 15px;
 	cursor: pointer;
 	font-size: 20px;
 	transition: background-color 0.3s ease;
@@ -772,37 +771,52 @@ section.notice {
 }
 /* 말풍선 스타일 */
 .infoWindow-content {
-  background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
-  padding: 15px;
-  border-radius: 15px;
-  font-size: 16px;
-  color: #333333;
-  position: relative;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  border: none;
-  box-shadow: none;
+	background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+	padding: 15px;
+	border-radius: 15px;
+	font-size: 16px;
+	color: #333333;
+	position: relative;
+	text-align: center;
+	font-family: 'Arial', sans-serif;
+	border: none;
+	box-shadow: none;
 }
 
 .infoWindow-content strong {
-  font-weight: bold;
-  color: #00796b;
+	font-size: 20px; font-weight : bold;
+	color: #00796b;
+	font-weight: bold;
 }
 
 .infoWindow-content p {
-  font-weight: normal;
-  margin: 5px 0 0;
+	font-weight: normal;
+	margin: 5px 0 0;
 }
 
 .infoWindow-content::after {
-  content: "";
-  position: absolute;
-  bottom: -29px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-width: 15px;
-  border-style: solid;
-  border-color: #80deea transparent transparent transparent;
+	content: "";
+	position: absolute;
+	bottom: -29px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-width: 15px;
+	border-style: solid;
+	border-color: #80deea transparent transparent transparent;
+}
+
+#check-con h1, #check-con p{
+	text-align: center;
+	font-family: Georgia, sans-serif;
+}
+
+#check-con h1{
+	margin-top:30px;
+	font-size: 45px;
+}
+#check-con p {
+	margin:20px;
+	font-size: 17px;
 }

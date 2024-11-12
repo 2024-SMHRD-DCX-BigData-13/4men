@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 
 		// 체크리스트 숨기기
-		document.getElementById('selectionForm').style.display = 'none';
+		document.getElementById('check-con').style.display = 'none';
 		document.getElementById('map').style.display = 'block';
 		const mapContainer = document.getElementById('map');
 		mapContainer.style.width = document.getElementById('rec-container').clientWidth + 'px';
@@ -82,7 +82,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 
 		const infoWindow = new naver.maps.InfoWindow({
-			content: `<div class="infoWindow-content" style="width:200px;text-align:center;padding:10px;"><strong>${selectedLocation.name}</strong><br>${selectedLocation.info}</div>`,
+			content: `
+                <div class="infoWindow-content" style="width:200px;text-align:center;padding:10px;">
+                    <strong>${selectedLocation.name}</strong><br>
+                    ${selectedLocation.info}<br>
+                    <a href="https://www.google.com/search?q=${encodeURIComponent(selectedLocation.name)}" target="_blank">▶검색해보기◀</a>
+                </div>
+            `,
 			borderWidth: 0,
 			disableAnchor: true,
 			backgroundColor: 'transparent',
@@ -104,10 +110,4 @@ document.addEventListener("DOMContentLoaded", function() {
 	};
 });
 
-infoWindow.setContent(`
-  <div class="infoWindow-content" style="width:200px;text-align:center;padding:10px;">
-    <strong>${selectedLocation.name}</strong><br>
-    ${selectedLocation.info}<br>
-    <a href="https://www.google.com/search?q=${selectedLocation.name}" target="_blank">자동검색</a>
-  </div>
-`);
+

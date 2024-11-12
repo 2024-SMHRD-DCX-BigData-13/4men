@@ -66,6 +66,10 @@ response.setDateHeader("Expires", -1);
 	</div>
 	<div class="content-container">
 		<div id="rec-container">
+		<div id= "check-con">
+			<h1>Check List</h1>
+			<p>좋아하는 스타일 click!</p>
+			
 			<form id="selectionForm">
 				<label><input type="checkbox" name="options" value="야경">
 					야경</label><br> <label><input type="checkbox" name="options"
@@ -93,6 +97,7 @@ response.setDateHeader("Expires", -1);
 					type="checkbox" name="options" value="박물관"> 박물관</label><br>
 				<button type="button" onclick="submitSelection()">추천받기</button>
 			</form>
+			</div>
 			<div id="map"
 				style="width: 100%; height: 500px; margin-top: 20px; display: none;"></div>
 		</div>
