@@ -44,6 +44,7 @@ $("#free-board").click(() => {
 })
 
 $(document).ready(function() {
+	console.log("나옴");
 	var pageSize = 10;  // 페이지당 게시글 수 설정
 
 	// 초기 로드 시 첫 페이지 게시글 로드
@@ -64,6 +65,7 @@ $(document).ready(function() {
 		$(this).addClass('active'); // 클릭된 카테고리 버튼에 active 클래스 추가
 		loadPosts(1);  // 첫 페이지로 이동하여 게시글 로드
 	});
+
 	// AJAX로 게시글 로드 함수
 	function loadPosts(page) {
 		var post_type = $('#current-post-type').val();  // 현재 post_type 값 가져오기
@@ -210,3 +212,103 @@ function submitSelection() {
 }
 
 
+$(document).ready(function() {
+    var pageSize = 10;  // 페이지당 게시글 수 설정
+
+    // 초기 로드 시 첫 페이지 게시글 로드
+    loadPosts(1);
+
+    // 페이지네이션 버튼 클릭 이벤트를 동적으로 할당
+    $(document).on('click', '.page-button', function(e) {
+        e.preventDefault();
+        var pageNum = $(this).data('page');
+        loadPosts(pageNum);
+    });
+
+    // 카테고리 버튼 클릭 이벤트
+    $('category-btn').click(function() {
+        var post_type = $(this).data('value');  // 버튼의 data-value 속성에서 post_type 값 가져오기 (팁, 잡담, 건의사항)
+        $('#current-post-type').val(post_type); // 현재 post_type을 hidden input에 저장
+        $('.category-btn').removeClass('active'); // 모든 카테고리 버튼에서 active 클래스 제거
+        $(this).addClass('active'); // 클릭된 카테고리 버튼에 active 클래스 추가
+        loadPosts(1);  // 첫 페이지로 이동하여 게시글 로드
+    });
+
+    // 모달 닫기 기능 추가
+    $('.modal-overlay').click(function() {
+        $('.modal').hide(); // 모달 닫기
+        $('.modal-overlay').hide();
+    });
+
+    // 새로운 검색 함수 추가
+
+});
+    function searchPosts() {
+        var keyword = $('#search-keyword').val(); // 검색어 입력값 가져오기
+
+        $.ajax({
+            url: 'search.do', // 검색을 처리하는 SearchCon으로 요청
+            type: 'GET',
+            data: { text: keyword }, // 검색어를 서버로 전송
+            dataType: 'json',
+            success: function(response) {
+                if (response) {
+                    var boardListBody = $('#board-list-body');
+                    boardListBody.empty(); // 기존 게시글 목록 비우기
+
+                    // 새로운 게시글 추가
+                    if (response.length > 0) {
+                        $.each(response, function(index, post) {
+                            var postRow = $(
+                                '<tr>' +
+                                '<td class="th-num">' + (index + 1) + '</td>' +
+                                '<td class="th-title"><a href="#" class="post-link" data-id="' + post.post_idx + '" data-title="' + post.post_title + '" data-content="' + post.post_content + '">' + post.post_title + '</a></td>' +
+                                '<td class="th-name">' + post.id + '</td>' +
+                                '<td class="th-date">' + post.create_dt + '</td>' +
+                                '<td class="th-views">' + post.post_views + '</td>' +
+                                '</tr>'
+                            );
+
+                            // 이벤트 리스너 추가
+                            postRow.find('.post-link').click(function(e) {
+                                e.preventDefault(); // 링크 기본 동작 방지
+
+                                $('#post_title').text(post.post_title);
+                                $('#post_author').text('작성자: ' + post.id);
+                                $('#post_date').text('작성일: ' + post.create_dt);
+                                $('#post_content').text(post.post_content);
+
+                                var basePath = '/assets/css/images/';
+                                var imageUrl = contextPath + basePath + post.post_file;
+                                console.log("이미지 URL:", imageUrl); // 디버깅용
+
+                                $('#post_image').attr('src', imageUrl); // 이미지 설정
+
+                                $('.modal-overlay').show(); // 배경 보이기
+                                $('.modal').show(); // 모달 표시
+                            });
+
+                            boardListBody.append(postRow);
+                        });
+                    } else {
+                        boardListBody.append('<tr><td colspan="5">게시글이 없습니다.</td></tr>');
+                    }
+                } else {
+                    console.error('서버 응답이 유효하지 않습니다.');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('검색 결과를 가져오는 중 오류 발생:', error);
+            }
+        });
+    }
+
+    // 검색 버튼 클릭 이벤트 추가
+    $('#search-btn').click(function() {
+        searchPosts();  // 검색 함수 호출
+    });
+
+$('#search-btn').click(function() {
+    console.log('검색 버튼이 클릭되었습니다.'); // 버튼 클릭 확인용 로그
+    searchPosts();  // 검색 함수 호출
+});

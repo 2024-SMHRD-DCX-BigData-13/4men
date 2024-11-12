@@ -52,7 +52,7 @@
 			</tr>
 			<tr>
 				<th class=thc>PHONE</th>
-				<td><input type="text" name="phone" value="${member.phone}"></td>
+				<td><input type="text" name="phone" id="phone" value="${member.phone}"></td>
 			</tr>
 			<tr>
 				<th class=thc>생성날짜</th>
@@ -68,12 +68,10 @@
 		</table>
 	</form>
 
-	<div class="footer-bar">
-		<!-- 팀 정보 -->
 		<div class="team">
 			<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team: 4men</a>
 		</div>
-	</div>
+
 </body>
 
 </html>

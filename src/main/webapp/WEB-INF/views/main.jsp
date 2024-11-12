@@ -14,19 +14,18 @@ response.setDateHeader("Expires", -1);
 <html>
 <head>
 <meta charset="UTF-8">
-	<script>
+<script>
   var contextPath = '<%=request.getContextPath()%>';
-	</script>
+</script>
 <title>PICTOGRAM</title>
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-
-	<c:if test="${param.message == 'success'}">
-		<script>
-			alert("게시물 작성 성공!");
-		</script>
-	</c:if>
+    <c:if test="${not empty popupMsg}">
+    <script>
+        alert("${popupMsg}");
+    </script>
+</c:if>
 
 	<c:if test="${not empty showFreeBoard}">
 		<script>
@@ -66,40 +65,39 @@ response.setDateHeader("Expires", -1);
 	</div>
 	<div class="content-container">
 		<div id="rec-container">
-		<div id= "check-con">
-			<h1>Check List</h1>
-			<p>좋아하는 스타일 click!</p>
-			
-			<form id="selectionForm">
-				<label><input type="checkbox" name="options" value="야경">
-					야경</label><br> <label><input type="checkbox" name="options"
-					value="시장"> 시장</label><br> <label><input
-					type="checkbox" name="options" value="건축물"> 건축물</label><br> <label><input
-					type="checkbox" name="options" value="감성적인카페"> 감성적인 카페</label><br>
-				<label><input type="checkbox" name="options" value="골목길">
-					골목길</label><br> <label><input type="checkbox" name="options"
-					value="전망"> 전망</label><br> <label><input
-					type="checkbox" name="options" value="숲"> 숲</label><br> <label><input
-					type="checkbox" name="options" value="계곡"> 계곡</label><br> <label><input
-					type="checkbox" name="options" value="야생화"> 야생화</label><br> <label><input
-					type="checkbox" name="options" value="자연 풍경"> 자연 풍경</label><br>
-				<label><input type="checkbox" name="options" value="일출일몰">
-					일출/일몰</label><br> <label><input type="checkbox" name="options"
-					value="해변"> 해변</label><br> <label><input
-					type="checkbox" name="options" value="파도"> 파도</label><br> <label><input
-					type="checkbox" name="options" value="선박"> 선박</label><br> <label><input
-					type="checkbox" name="options" value="항구"> 항구</label><br> <label><input
-					type="checkbox" name="options" value="유적지"> 유적지</label><br> <label><input
-					type="checkbox" name="options" value="역사적인건물"> 역사적인 건물</label><br>
-				<label><input type="checkbox" name="options" value="전통의상">
-					전통 의상</label><br> <label><input type="checkbox" name="options"
-					value="문화"> 문화</label><br> <label><input
-					type="checkbox" name="options" value="박물관"> 박물관</label><br>
-				<button type="button" onclick="submitSelection()">추천받기</button>
-			</form>
+			<div id="check-con">
+				<h1>Check List</h1>
+				<p>좋아하는 스타일 click!</p>
+
+				<form id="selectionForm">
+					<label><input type="checkbox" name="options" value="야경">
+						야경</label><br> <label><input type="checkbox" name="options"
+						value="시장"> 시장</label><br> <label><input
+						type="checkbox" name="options" value="건축물"> 건축물</label><br> <label><input
+						type="checkbox" name="options" value="감성적인카페"> 감성적인 카페</label><br>
+					<label><input type="checkbox" name="options" value="골목길">
+						골목길</label><br> <label><input type="checkbox" name="options"
+						value="전망"> 전망</label><br> <label><input
+						type="checkbox" name="options" value="숲"> 숲</label><br> <label><input
+						type="checkbox" name="options" value="계곡"> 계곡</label><br> <label><input
+						type="checkbox" name="options" value="야생화"> 야생화</label><br> <label><input
+						type="checkbox" name="options" value="자연 풍경"> 자연 풍경</label><br>
+					<label><input type="checkbox" name="options" value="일출일몰">
+						일출/일몰</label><br> <label><input type="checkbox"
+						name="options" value="해변"> 해변</label><br> <label><input
+						type="checkbox" name="options" value="파도"> 파도</label><br> <label><input
+						type="checkbox" name="options" value="선박"> 선박</label><br> <label><input
+						type="checkbox" name="options" value="항구"> 항구</label><br> <label><input
+						type="checkbox" name="options" value="유적지"> 유적지</label><br> <label><input
+						type="checkbox" name="options" value="역사적인건물"> 역사적인 건물</label><br>
+					<label><input type="checkbox" name="options" value="전통의상">
+						전통 의상</label><br> <label><input type="checkbox"
+						name="options" value="문화"> 문화</label><br> <label><input
+						type="checkbox" name="options" value="박물관"> 박물관</label><br>
+					<button type="button" onclick="submitSelection()">추천받기</button>
+				</form>
 			</div>
-			<div id="map"
-				style="width: 100%; height: 500px; margin-top: 20px; display: none;"></div>
+			<div id="map"></div>
 		</div>
 
 
@@ -144,8 +142,8 @@ response.setDateHeader("Expires", -1);
 					</div>
 				</div>
 				<div class="search">
-					<input type="text" id=searchInpit>
-					<button id=searchButton onclick="">검색</button>
+					<input type="text" id="search-keyword" placeholder="검색어를 입력하세요">
+					<button id="search-btn">검색</button>
 				</div>
 				<!-- 페이지네이션 -->
 				<div class="pagination">
@@ -170,11 +168,11 @@ response.setDateHeader("Expires", -1);
 	</div>
 
 
-	<div class="footer-bar">
-		<div class="team">
-			<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team: 4men</a>
-		</div>
+
+	<div class="team">
+		<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team: 4men</a>
 	</div>
+
 
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script

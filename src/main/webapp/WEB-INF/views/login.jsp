@@ -83,13 +83,12 @@
 			<button type="button" onclick="showLogin();">돌아가기</button>
 		</form>
 	</div>
-	<div class="footer-bar">
-		<!-- 팀 정보 -->
+
 		<div id="team">
 			<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team:
 				4men</a>
 		</div>
-	</div>
+
 	<script
 		src="${pageContext.request.contextPath}/assets/js/login-function.js"></script>
 	<script

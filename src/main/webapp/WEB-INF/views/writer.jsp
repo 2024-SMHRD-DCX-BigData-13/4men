@@ -74,11 +74,11 @@
 
 		</form>
 	</div>
-	<div class="footer-bar">
-		<!-- 팀 정보 -->
+
+
 		<div class="team">
 			<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team: 4men</a>
 		</div>
-	</div>
+
 </body>
 </html>

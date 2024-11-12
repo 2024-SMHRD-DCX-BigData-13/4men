@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="infoWindow-content" style="width:200px;text-align:center;padding:10px;">
                     <strong>${selectedLocation.name}</strong><br>
                     ${selectedLocation.info}<br>
-                    <a href="https://www.google.com/search?q=${encodeURIComponent(selectedLocation.name)}" target="_blank">▶검색해보기◀</a>
+                    <a href="https://www.google.com/search?q=${encodeURIComponent(selectedLocation.name)+" 사진 찍기 좋은 곳"}" target="_blank">▶검색해보기◀</a>
                 </div>
             `,
 			borderWidth: 0,

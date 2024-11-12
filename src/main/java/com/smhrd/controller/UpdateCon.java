@@ -29,11 +29,11 @@ public class UpdateCon implements Controller {
 
 		int cnt = dao.update(member);
 
-
 		if (cnt > 0) {
 			System.out.println("O");
 			Member members = dao.select(id);
 			request.getSession().setAttribute("member", members);
+			request.setAttribute("popupMsg", "회원정보 수정 성공!"); 
 			return "main";
 		} else {
 			System.out.println("X");

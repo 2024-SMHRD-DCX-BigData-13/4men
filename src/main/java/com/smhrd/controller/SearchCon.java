@@ -20,26 +20,20 @@ public class SearchCon implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-		
-		String text = request.getParameter("text");
-		
-		PostDAO dao = new PostDAO();
-		List<Post> list = dao.search(text);
-		
-		
-		Gson gson = new Gson();
+		  request.setCharacterEncoding("UTF-8");
+	        String text = request.getParameter("text"); 
+	        PostDAO dao = new PostDAO();
+	        List<Post> list = dao.search(text); 
 
-		String json = gson.toJson(list);
+	        Gson gson = new Gson();
+	        String json = gson.toJson(list); 
 
-		
-		response.setContentType("text/html; charset=UTF-8");
-		
-		PrintWriter out = response.getWriter();
-		
-		out.print(json);
-		
-		return null;
+	        response.setContentType("application/json; charset=UTF-8");
+	        PrintWriter out = response.getWriter();
+	        out.print(json); 
+	        out.close();
+
+	        return null;
 	}
 
 }
