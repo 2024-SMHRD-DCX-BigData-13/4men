@@ -90,7 +90,7 @@ $(document).ready(function() {
 							var postRow = $(
 								'<tr>' +
 								'<td class="th-num">' + (startNumber + index) + '</td>' +
-								'<td class="th-title"><a href="#" class="post-link" data-id="' + post.post_idx + '" data-title="' + post.post_title + '" data-content="' + post.post_content + '">' + post.post_title + '</a></td>'+
+								'<td class="th-title"><a href="#" class="post-link" data-id="' + post.post_idx + '" data-title="' + post.post_title + '" data-content="' + post.post_content + '">' + post.post_title + '</a></td>' +
 								'<td class="th-name">' + post.id + '</td>' +
 								'<td class="th-date">' + post.create_dt + '</td>' +
 								'<td class="th-views">' + post.post_views + '</td>' +
@@ -106,8 +106,8 @@ $(document).ready(function() {
 								$('#post_date').text('작성일: ' + post.create_dt);
 								$('#post_content').text(post.post_content);
 
-								var basePath = '/project/assets/css/images/';
-								var imageUrl = basePath + post.post_file;
+								var basePath = '/assets/css/images/';
+								var imageUrl = contextPath + basePath + post.post_file;
 
 								console.log("이미지 URL:", imageUrl); // 디버깅용
 
@@ -156,59 +156,59 @@ $(document).ready(function() {
 });
 
 $(document).on('click', '.post-link', function(e) {
-    e.preventDefault(); // 링크의 기본 동작 방지
+	e.preventDefault(); // 링크의 기본 동작 방지
 
-    var postId = $(this).data('id'); // 게시글의 ID 가져오기
-    var $viewElement = $(this).closest('tr').find('.th-views'); // 조회수 표시하는 요소 선택
+	var postId = $(this).data('id'); // 게시글의 ID 가져오기
+	var $viewElement = $(this).closest('tr').find('.th-views'); // 조회수 표시하는 요소 선택
 
-    console.log("Sending postId:", postId); // 디버깅 로그 추가
+	console.log("Sending postId:", postId); // 디버깅 로그 추가
 
-    if (!postId) {
-        console.error("postId가 유효하지 않습니다.");
-        return; // postId가 없으면 함수를 종료
-    }
+	if (!postId) {
+		console.error("postId가 유효하지 않습니다.");
+		return; // postId가 없으면 함수를 종료
+	}
 
-    // 조회수 증가 요청 보내기
-    $.ajax({
-        url: 'increaseViewCount.do',
-        type: 'POST',
-        data: { postId: postId },
-        success: function(response) {
-            console.log("조회수가 증가되었습니다.");
+	// 조회수 증가 요청 보내기
+	$.ajax({
+		url: 'increaseViewCount.do',
+		type: 'POST',
+		data: { postId: postId },
+		success: function(response) {
+			console.log("조회수가 증가되었습니다.");
 
-            // 조회수를 바로 업데이트 (예제에서는 기존 조회수에 1을 더함)
-            var currentViews = parseInt($viewElement.text(), 10);
-            if (!isNaN(currentViews)) {
-                $viewElement.text(currentViews + 1); // 조회수를 업데이트
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error("조회수 증가 중 오류 발생:", error);
-            console.error("응답 상태 코드:", xhr.status); // 상태 코드 확인
-            console.error("응답 내용:", xhr.responseText); // 응답 내용 확인
-        }
-    });
+			// 조회수를 바로 업데이트 (예제에서는 기존 조회수에 1을 더함)
+			var currentViews = parseInt($viewElement.text(), 10);
+			if (!isNaN(currentViews)) {
+				$viewElement.text(currentViews + 1); // 조회수를 업데이트
+			}
+		},
+		error: function(xhr, status, error) {
+			console.error("조회수 증가 중 오류 발생:", error);
+			console.error("응답 상태 코드:", xhr.status); // 상태 코드 확인
+			console.error("응답 내용:", xhr.responseText); // 응답 내용 확인
+		}
+	});
 
-    // 모달창을 띄우기 위해 추가된 코드 (기존 모달창 코드 유지)
-    $('#post_title').text($(this).data('title'));
-    $('#post_content').text($(this).data('content'));
-    $('#post_image').attr('src', $(this).data('image')); // 이미지가 있을 경우
-    $('.modal').show();
+	// 모달창을 띄우기 위해 추가된 코드 (기존 모달창 코드 유지)
+	$('#post_title').text($(this).data('title'));
+	$('#post_content').text($(this).data('content'));
+	$('#post_image').attr('src', $(this).data('image')); // 이미지가 있을 경우
+	$('.modal').show();
 });
 
 
-  function submitSelection() {
-    const selectionForm = document.getElementById('selectionForm');
-    const mapDiv = document.getElementById('map');
+function submitSelection() {
+	const selectionForm = document.getElementById('selectionForm');
+	const mapDiv = document.getElementById('map');
 
-    // 체크리스트 숨기기
-    selectionForm.style.display = 'none';
+	// 체크리스트 숨기기
+	selectionForm.style.display = 'none';
 
-    // 지도 표시하기
-    mapDiv.style.display = 'block';
+	// 지도 표시하기
+	mapDiv.style.display = 'block';
 
-    // 지도 표시 로직 추가 (예: Google Maps API 활용)
-    // 예시: 위치 데이터 가져와서 지도에 표시하기
-  }
+	// 지도 표시 로직 추가 (예: Google Maps API 활용)
+	// 예시: 위치 데이터 가져와서 지도에 표시하기
+}
 
 

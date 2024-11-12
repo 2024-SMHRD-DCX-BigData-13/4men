@@ -14,10 +14,14 @@ response.setDateHeader("Expires", -1);
 <html>
 <head>
 <meta charset="UTF-8">
+	<script>
+  var contextPath = '<%=request.getContextPath()%>';
+	</script>
 <title>PICTOGRAM</title>
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
+
 	<c:if test="${param.message == 'success'}">
 		<script>
 			alert("게시물 작성 성공!");
@@ -166,6 +170,7 @@ response.setDateHeader("Expires", -1);
 			<a href="https://namu.wiki/w/%ED%95%B4%EC%9B%90">Team: 4men</a>
 		</div>
 	</div>
+
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/main-function.js"></script>
