@@ -771,7 +771,7 @@ section.notice {
 }
 /* 말풍선 스타일 */
 .infoWindow-content {
-	background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+	background-color:white; 
 	padding: 15px;
 	border-radius: 15px;
 	font-size: 16px;
@@ -780,12 +780,12 @@ section.notice {
 	text-align: center;
 	font-family: 'Arial', sans-serif;
 	border: none;
-	box-shadow: none;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  
+	z-index: 1050;
 }
-
 .infoWindow-content strong {
 	font-size: 20px; font-weight : bold;
-	color: #00796b;
+	color: #333333;
 	font-weight: bold;
 }
 
@@ -794,18 +794,6 @@ section.notice {
 	margin: 5px 0 0;
 }
 
-.infoWindow-content::after {
-	content: "";
-	position: absolute;
-	bottom: -29px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 0;
-	height: 0;
-	border-width: 15px;
-	border-style: solid;
-	border-color: #80deea transparent transparent transparent;
-}
 
 #check-con h1, #check-con p{
 	text-align: center;

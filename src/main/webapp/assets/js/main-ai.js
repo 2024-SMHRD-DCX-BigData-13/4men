@@ -25,18 +25,78 @@ document.addEventListener("DOMContentLoaded", function() {
 		// 임시 명소 데이터 (카테고리별 사진 찍기 좋은 명소 좌표)
 		const locations = {
 			도시: [
-				{ name: "서울 남산타워", lat: 37.5512, lng: 126.9882, info: "서울의 대표적인 랜드마크로, 아름다운 야경을 감상할 수 있습니다." },
-				{ name: "동대문 디자인 플라자", lat: 37.567, lng: 127.009, info: "미래지향적인 건축물과 다양한 전시가 열리는 서울의 명소입니다." },
-				{ name: "서울숲", lat: 37.5444, lng: 127.0371, info: "서울 도심 속에서 자연을 느낄 수 있는 공원입니다." },
-				{ name: "명동 거리", lat: 37.5636, lng: 126.982, info: "쇼핑과 다양한 먹거리를 즐길 수 있는 서울의 번화가입니다." },
-				{ name: "이태원", lat: 37.5345, lng: 126.994, info: "다양한 문화와 외국인들이 모이는 국제적인 거리입니다." }
+				{
+					name: "서울 남산타워",
+					lat: 37.5512,
+					lng: 126.9882,
+					info: "서울의 대표적인 랜드마크로, 아름다운 야경을 감상할 수 있습니다.",
+					image: contextPath + "/assets/css/images/city1.png"
+				},
+				{
+					name: "동대문 디자인 플라자",
+					lat: 37.567,
+					lng: 127.009,
+					info: "미래지향적인 건축물과 다양한 전시가 열리는 서울의 명소입니다.",
+					image: contextPath + "/assets/css/images/city2.png"
+				},
+				{
+					name: "서울숲",
+					lat: 37.5444,
+					lng: 127.0371,
+					info: "서울 도심 속에서 자연을 느낄 수 있는 공원입니다.",
+					image: contextPath + "/assets/css/images/city3.png"
+				},
+				{
+					name: "명동 거리",
+					lat: 37.5636,
+					lng: 126.982,
+					info: "쇼핑과 다양한 먹거리를 즐길 수 있는 서울의 번화가입니다.",
+					image: contextPath + "/assets/css/images/city4.png"
+				},
+				{
+					name: "이태원",
+					lat: 37.5345,
+					lng: 126.994,
+					info: "다양한 문화와 외국인들이 모이는 국제적인 거리입니다.",
+					image: contextPath + "/assets/css/images/city5.png"
+				}
 			],
 			산: [
-				{ name: "설악산 국립공원", lat: 38.1195, lng: 128.4656, info: "한국에서 가장 아름다운 산 중 하나로, 사계절 내내 멋진 풍경을 제공합니다." },
-				{ name: "한라산", lat: 33.3617, lng: 126.5292, info: "제주의 중심에 위치한 산으로, 한라산 정상에서의 경치가 일품입니다." },
-				{ name: "북한산", lat: 37.6583, lng: 126.9889, info: "서울 근교에서 등산을 즐기기 좋은 산입니다." },
-				{ name: "지리산", lat: 35.3216, lng: 127.7305, info: "한국의 대표적인 명산 중 하나로, 다양한 트래킹 코스를 제공합니다." },
-				{ name: "도봉산", lat: 37.6913, lng: 127.0464, info: "도시 근처에서 자연을 즐길 수 있는 인기 등산지입니다." }
+				{
+					name: "설악산 국립공원",
+					lat: 38.1195,
+					lng: 128.4656,
+					info: "한국에서 가장 아름다운 산 중 하나로, 사계절 내내 멋진 풍경을 제공합니다.",
+					image: contextPath + "/assets/css/images/mountain1.png"
+				},
+				{
+					name: "한라산",
+					lat: 33.3617,
+					lng: 126.5292,
+					info: "제주의 중심에 위치한 산으로, 한라산 정상에서의 경치가 일품입니다.",
+					image: contextPath + "/assets/css/images/mountain2.png"
+				},
+				{
+					name: "북한산",
+					lat: 37.6583,
+					lng: 126.9889,
+					info: "서울 근교에서 등산을 즐기기 좋은 산입니다.",
+					image: contextPath + "/assets/css/images/mountain3.jpg"
+				},
+				{
+					name: "지리산",
+					lat: 35.3216,
+					lng: 127.7305,
+					info: "한국의 대표적인 명산 중 하나로, 다양한 트래킹 코스를 제공합니다.",
+					image: contextPath + "/assets/css/images/mountain4.jpg"
+				},
+				{
+					name: "도봉산",
+					lat: 37.6913,
+					lng: 127.0464,
+					info: "도시 근처에서 자연을 즐길 수 있는 인기 등산지입니다.",
+					image: contextPath + "/assets/css/images/mountain5.png"
+				}
 			],
 			바다: [
 				{ name: "해운대 해수욕장", lat: 35.1587, lng: 129.1603, info: "부산에서 가장 유명한 해변으로, 해수욕과 다양한 해양 활동을 즐길 수 있습니다." },
@@ -78,36 +138,46 @@ document.addEventListener("DOMContentLoaded", function() {
 		const marker = new naver.maps.Marker({
 			position: new naver.maps.LatLng(selectedLocation.lat, selectedLocation.lng),
 			map: map,
-			title: selectedLocation.name
+			title: selectedLocation.name,
+			zIndex: 1080
 		});
+		var content = `
+    	<div class="infoWindow-content" style="width:200px; text-align:center; padding:10px;">
+       	   <strong>${selectedLocation.name}</strong><br>
+       	   <img src="${selectedLocation.image}" alt="${selectedLocation.name}" style="max-width: 100%; height: auto;"><br>
+       	   <p>${selectedLocation.info}</p>
+       	   <a href="https://www.google.com/search?q=${encodeURIComponent(selectedLocation.name)} 사진 찍기 좋은 곳" target="_blank">▶검색해보기◀</a>
+    	</div>
+`;
 
-		const infoWindow = new naver.maps.InfoWindow({
-			content: `
-                <div class="infoWindow-content" style="width:200px;text-align:center;padding:10px;">
-                    <strong>${selectedLocation.name}</strong><br>
-                    ${selectedLocation.info}<br>
-                    <a href="https://www.google.com/search?q=${encodeURIComponent(selectedLocation.name)+" 사진 찍기 좋은 곳"}" target="_blank">▶검색해보기◀</a>
-                </div>
-            `,
+		var infoWindow = new naver.maps.InfoWindow({
+			content: content,
 			borderWidth: 0,
-			disableAnchor: true,
-			backgroundColor: 'transparent',
-
-			disableAutoPan: false
+			disableAnchor: false,
+			pixelOffset: new naver.maps.Point(0, -10)
 		});
-
 
 		naver.maps.Event.addListener(marker, 'click', function() {
-			infoWindow.open(map, marker);
+			if (infoWindow.getMap()) {
+				infoWindow.close();
+			} else {
+				infoWindow.open(map, marker);
+			}
 		});
 
 		// 지도 중심 위치를 추천된 명소로 설정 및 줌 레벨을 높게 설정
 		map.setCenter(new naver.maps.LatLng(selectedLocation.lat, selectedLocation.lng));
-		map.setZoom(14); // 줌 레벨을 높게 설정하여 명소가 더 강조되도록 설정
+		map.setZoom(16); // 줌 레벨을 높게 설정하여 명소가 더 강조되도록 설정
 
-		// 지도 로드 후 바로 정보창 열기
-		infoWindow.open(map, marker);
+
 	};
 });
 
-
+naver.maps.Event.addListener(marker, 'click', function() {
+	console.log("마커가 클릭되었습니다."); // 디버깅용 로그 추가
+	if (customOverlay.getMap()) {
+		customOverlay.setMap(null); // 이미 열려 있으면 닫기
+	} else {
+		customOverlay.setMap(map); // 닫혀 있으면 열기
+	}
+});
