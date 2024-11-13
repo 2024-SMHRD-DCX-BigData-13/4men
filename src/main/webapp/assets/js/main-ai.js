@@ -99,18 +99,73 @@ document.addEventListener("DOMContentLoaded", function() {
 				}
 			],
 			바다: [
-				{ name: "해운대 해수욕장", lat: 35.1587, lng: 129.1603, info: "부산에서 가장 유명한 해변으로, 해수욕과 다양한 해양 활동을 즐길 수 있습니다." },
-				{ name: "속초 해변", lat: 38.207, lng: 128.591, info: "깨끗한 모래와 맑은 바다를 자랑하는 동해안의 해변입니다." },
-				{ name: "제주 함덕 해수욕장", lat: 33.5431, lng: 126.6724, info: "제주도에서 가장 인기 있는 해변 중 하나로, 아름다운 경치를 제공합니다." },
-				{ name: "광안리 해수욕장", lat: 35.1539, lng: 129.1184, info: "부산의 대표적인 해변으로, 광안대교와 함께 아름다운 야경을 즐길 수 있습니다." },
-				{ name: "정동진 해변", lat: 37.6897, lng: 129.0343, info: "해돋이 명소로 유명한 동해안의 아름다운 해변입니다." }
+				{
+					name: "해운대 해수욕장",
+					lat: 35.1587,
+					lng: 129.1603,
+					info: "부산에서 가장 유명한 해변으로, 해수욕과 다양한 해양 활동을 즐길 수 있습니다.",
+					image: contextPath + "/assets/css/images/sea1.jpg"
+				},
+				{
+					name: "속초 해변",
+					lat: 38.207,
+					lng: 128.591,
+					info: "깨끗한 모래와 맑은 바다를 자랑하는 동해안의 해변입니다.",
+					image: contextPath + "/assets/css/images/sea2.jpg"
+				},
+				{
+					name: "제주 함덕 해수욕장",
+					lat: 33.5431,
+					lng: 126.6724,
+					info: "제주도에서 가장 인기 있는 해변 중 하나로, 아름다운 경치를 제공합니다.",
+					image: contextPath + "/assets/css/images/sea3.png"
+				},
+				{
+					name: "광안리 해수욕장",
+					lat: 35.1539,
+					lng: 129.1184,
+					info: "부산의 대표적인 해변으로, 광안대교와 함께 아름다운 야경을 즐길 수 있습니다.",
+					image: contextPath + "/assets/css/images/sea4.jpg"
+				},
+				{
+					name: "정동진 해변",
+					lat: 37.6897,
+					lng: 129.0343,
+					info: "해돋이 명소로 유명한 동해안의 아름다운 해변입니다.",
+					image: contextPath + "/assets/css/images/sea5.jpg"
+				}
 			],
 			역사: [
-				{ name: "경복궁", lat: 37.5796, lng: 126.977, info: "조선 시대의 대표 궁궐로, 한국의 전통 건축을 감상할 수 있는 곳입니다." },
-				{ name: "창덕궁", lat: 37.5826, lng: 126.991, info: "자연과 조화된 아름다운 궁궐로, 세계문화유산에 등재되어 있습니다." },
-				{ name: "수원 화성", lat: 37.2862, lng: 127.0095, info: "조선 시대의 성곽으로, 역사적 가치가 높은 유적지입니다." },
-				{ name: "안동 하회마을", lat: 36.5382, lng: 128.5186, info: "한국 전통 가옥이 잘 보존된 마을로, 유네스코 세계문화유산에 등재되어 있습니다." },
-				{ name: "종묘", lat: 37.5744, lng: 126.9911, info: "조선 왕조의 역사를 느낄 수 있는 한국의 전통 제례 장소입니다." }
+				{ name: "경복궁", 
+				lat: 37.5796, 
+				lng: 126.977, 
+				info: "조선 시대의 대표 궁궐로, 한국의 전통 건축을 감상할 수 있는 곳입니다.",
+				image: contextPath + "/assets/css/images/his1.jpg"
+				 },
+				{ name: "창덕궁", 
+				lat: 37.5826, 
+				lng: 126.991, 
+				info: "자연과 조화된 아름다운 궁궐로, 세계문화유산에 등재되어 있습니다.",
+				image: contextPath + "/assets/css/images/his2.jpg"
+				 },
+				{ name: "수원 화성", 
+				lat: 37.2862, 
+				lng: 127.0095, 
+				info: "조선 시대의 성곽으로, 역사적 가치가 높은 유적지입니다.",
+				image: contextPath + "/assets/css/images/his3.jpg"
+				 },
+				{ name: "안동 하회마을", 
+				lat: 36.5382, 
+				lng: 128.5186, 
+				info: "한국 전통 가옥이 잘 보존된 마을로, 유네스코 세계문화유산에 등재되어 있습니다.",
+				image: contextPath + "/assets/css/images/his4.jpg"
+				 },
+				{ name: "종묘", 
+				lat: 37.5744, 
+				lng: 126.9911, 
+				info: "조선 왕조의 역사를 느낄 수 있는 한국의 전통 제례 장소입니다.",
+				image: contextPath + "/assets/css/images/his5.jpg"
+				 }
 			]
 		};
 
@@ -168,16 +223,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		// 지도 중심 위치를 추천된 명소로 설정 및 줌 레벨을 높게 설정
 		map.setCenter(new naver.maps.LatLng(selectedLocation.lat, selectedLocation.lng));
 		map.setZoom(16); // 줌 레벨을 높게 설정하여 명소가 더 강조되도록 설정
-
+		
+		infoWindow.open(map, marker);
 
 	};
-});
-
-naver.maps.Event.addListener(marker, 'click', function() {
-	console.log("마커가 클릭되었습니다."); // 디버깅용 로그 추가
-	if (customOverlay.getMap()) {
-		customOverlay.setMap(null); // 이미 열려 있으면 닫기
-	} else {
-		customOverlay.setMap(map); // 닫혀 있으면 열기
-	}
 });
